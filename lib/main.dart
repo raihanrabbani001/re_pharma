@@ -19,6 +19,8 @@ Future main() async {
   final barangvm = BarangViewModel();
 
   await barangvm.insertData(data);
+  await barangvm.updateData(3, BarangModel('aaa', 'bebas', 'bebas juga', 'narkoboy'));
+  await barangvm.deleteData(3);
   final d = await barangvm.getData();
   print(d);
   // end

@@ -63,22 +63,22 @@ class BarangViewModel extends SQLService with ChangeNotifier {
     plu = ?,
     nama = ?,
     rak = ?,
-    golongan = ?,
-    WHERE id = ?
+    golongan = ?
+    WHERE id = $id
     """;
     List<Object?> arguments = [
       model.plu,
       model.nama,
       model.rak,
       model.golongan,
-      id,
     ];
-    return super.update(id: id, query: query, arguments: arguments);
+    return super.update(query: query, arguments: arguments);
   }
 
-  @override
-  Future<void> deleteItem(int id) {
-    // TODO: implement deleteItem
-    throw UnimplementedError();
+  Future<int> deleteData(int id) {
+    String query = '''
+    DELETE FROM $table WHERE id = $id
+  ''';
+  return super.delete(query: query);
   }
 }

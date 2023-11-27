@@ -22,8 +22,7 @@ abstract class SQLService {
   }
 
   Future<int> update(
-      {required int id,
-      required String query,
+      {required String query,
       required List<Object?> arguments}) async {
     final db = await SQLDatabase.db();
     final res = db.rawUpdate(query, arguments);
@@ -31,8 +30,10 @@ abstract class SQLService {
     return res;
   }
 
-  Future<int> delete(int id) async {
-    // TODO: implement deleteItem
-    throw UnimplementedError();
+  Future<int> delete({required String query}) async {
+    final db = await SQLDatabase.db();
+    final res = db.rawDelete(query);
+    db.close();
+    return res;
   }
 }
