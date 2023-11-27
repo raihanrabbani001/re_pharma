@@ -1,3 +1,4 @@
-# re_pharma
+# Re Pharma
 
-Aplikasi apotek desktop 🐍💊
+Pharmacy Apps 🐍💊
+Desktop 💻
